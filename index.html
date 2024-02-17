@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="parent"></div>
+  
+  <script >
+    let counter={
+      count:0
+    }
+    function onButtonPress(){
+      
+      counter.count++;
+      buttonComponentReRender();
+      
+    }
+    function buttonComponentReRender(){
+      document.getElementById("parent").innerHTML="";
+      const component=buttonComponent(counter.count);
+      document.getElementById("parent").appendChild(component);
+    }
+
+    
+    function buttonComponent(count){
+      
+      const button=document.createElement("button");
+      button.innerHTML=`Counter ${count}`;
+      button.setAttribute("onClick",`onButtonPress()`);
+      return button;
+    }
+
+    buttonComponentReRender();
+  </script>
+</body>
+
+</html>
